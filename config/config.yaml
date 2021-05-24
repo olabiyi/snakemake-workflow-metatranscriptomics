@@ -1,0 +1,166 @@
+sample_file: "config/sample.tsv"
+
+samples: ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2']
+
+project_dir: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/"
+
+paired: False
+
+raw_data_dir: "01.raw_data/"
+
+project_name: "flowcell_transcriptome"
+
+use_sortmerna: False
+
+rRNA: "/gpfs0/bioinfo/users/obayomi/hinuman_analysis/shotGunMetagenomics/find_16S_sequences/99_otus_16S.fasta"
+
+# Full paths the specified programs
+programs_path:
+    multiqc: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/multiqc"
+    trimmomatic: "java -jar /fastspace/bioinfo_apps/Trimmomatic-0.32/trimmomatic-0.32.jar"
+    bwa: "/gpfs0/bioinfo/users/obayomi/miniconda3/bin/bwa"
+    bowtie: 
+        bowtie: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/bowtie2"
+        build: "/gpfs0/bioinfo/apps/bowtie2/bowtie2-2.3.5-linux-x86_64/bowtie2-build"
+    fastqc: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/fastqc"
+    humann2: 
+        humann2: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/humann2"
+        renorm: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/humann2_renorm_table"
+        mpa_dir: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin"
+        join_tables: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/humann2_join_tables"
+        split_stratified_table: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/humann2_split_stratified_table"
+        regroup_tables:  "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/humann2_regroup_table"
+        rename_tables: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/humann2_rename_table"
+    samtools: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/samtools"
+    diamond: "/gpfs0/bioinfo/users/obayomi/bin/diamond"
+    metaerg: "perl /gpfs0/bioinfo/users/obayomi/metaerg/bin" 
+    jgi_summarize: "/gpfs0/bioinfo/users/obayomi/metabat/jgi_summarize_bam_contig_depths"
+    megan:
+        meganizer: "/gpfs0/bioinfo/users/obayomi/megan/tools/daa-meganizer"
+        daa2rma: "/gpfs0/bioinfo/users/obayomi/megan/tools/daa2rma"
+    kaiju: 
+        kaiju:          "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/kaiju"
+        kaiju2krona:    "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/kaiju2krona"
+        kaiju2table:    "/gpfs0/bioinfo/apps/kaiju/kaiju_master_20190404/bin/kaiju2table"
+    kt_import_taxonomy: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/ktImportTaxonomy"
+    kt_import_text: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/ktImportText"
+    quast:  "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/bin/quast.py"
+    trinity: 
+        trinity: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/opt/trinity-2.8.4//Trinity"
+        estimate_abundance: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/opt/trinity-2.8.4//util/align_and_estimate_abundance.pl"
+        gene_trans_map: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/opt/trinity-2.8.4/util/support_scripts/get_Trinity_gene_to_trans_map.pl"
+        count_matrix: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/bin/abundance_estimates_to_matrix.pl"
+        filter_transcript: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/opt/trinity-2.8.4/util/filter_low_expr_transcripts.pl"
+    trinotate:
+        trinotate: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/bin/Trinotate"
+        rnammer: 
+            rnammer: "perl  /gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/bin/RnammerTranscriptome_mod.pl"
+            path: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/opt/RNAMMERv1.2/rnammer"
+        transdecoder: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/bin/TransDecoder.LongOrfs"
+        hmmscan: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/bin/hmmscan"
+        blastx: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/bin/blastx"
+        blastp: "/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/bin/blastp" 
+    metaphlan:
+        metaphlan: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/metaphlan2.py"
+        metaphlan2stamp: "/gpfs0/bioinfo/users/obayomi/microbiome_helper/metaphlan_to_stamp.pl"
+        merge_metaphlan: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/merge_metaphlan_tables.py"
+        metaphlan2krona: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/bin/metaphlan2krona.py"
+    parallel: "/gpfs0/bioinfo/users/obayomi/bin/parallel"
+    sortmerna: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/sortmerna"
+    index_db: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/indexdb_rna"
+
+databases:
+    humann2:
+        chocophlan: "/gpfs0/bioinfo/databases/Humann2/chocophlan/chocophlan/"
+        uniref50: "/gpfs0/bioinfo/databases/Humann2/uniref50/"  # Folder containing uniref 50 diamond database
+        uniref90: "/gpfs0/bioinfo/databases/Humann2/uniref90/uniref/"
+    kaiju:
+        names: "/gpfs0/bioinfo/databases/kaiju_databases/kaijudb_archaea_bacteria_viral_euk_nr_2018/names.dmp"
+        nodes:   "/gpfs0/bioinfo/databases/kaiju_databases/kaijudb_archaea_bacteria_viral_euk_nr_2018/nodes.dmp"
+        fmi:     "/gpfs0/bioinfo/databases/kaiju_databases/kaijudb_archaea_bacteria_viral_euk_nr_2018/kaiju_db_nr_euk.fmi"
+    krona_taxonomy: "/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/databases/krona/taxonomy"
+    diamond: 
+        nr: "/gpfs0/bioinfo/users/obayomi/databases/nr"
+    metaerg: "/gpfs0/bioinfo/users/obayomi/metaerg/db/"
+    megan:
+      acc2taxa: "/gpfs0/bioinfo/users/obayomi/megan/prot_acc2tax-Jul2019X1.abin"
+      acc2seed: "/gpfs0/bioinfo/users/obayomi/megan/acc2seed-May2015XX.abin"
+
+      acc2interpro: "/gpfs0/bioinfo/users/obayomi/megan/acc2interpro-Jul2019X.abin"
+      acc2eggnog: "/gpfs0/bioinfo/users/obayomi/megan/acc2eggnog-Jul2019X.abin"
+    sortmerna:
+        ref_dir: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/rRNA_databases/"
+        index_dir: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/index/"
+        rfam:
+            5s: 
+                ref: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/rRNA_databases/rfam-5s-database-id98.fasta"
+                index: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/index/rfam-5s-database-db"
+            5_8s: 
+                ref: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/rRNA_databases/rfam-5.8s-database-id98.fasta"
+                index: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/index/rfam-5.8s-database-db"
+        bac:
+            16s:
+                ref: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/rRNA_databases/silva-bac-16s-id90.fasta"
+                index: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/index/silva-bac-16s-db" 
+            23s: 
+                ref: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/rRNA_databases/silva-bac-23s-id98.fasta"
+                index: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/index/silva-bac-23s-db"
+        arch:
+            16s: 
+                ref: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/rRNA_databases/silva-arc-16s-id95.fasta"
+                index: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/index/silva-arc-16s-db"
+            23s: 
+                ref: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/rRNA_databases/silva-arc-23s-id98.fasta"
+                index: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/index/silva-arc-23s-db"
+        euk: 
+            18s: 
+                ref: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/rRNA_databases/silva-euk-18s-id95.fasta"
+                index: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/index/silva-euk-18s-db"
+            28s: 
+                ref: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/rRNA_databases/silva-euk-28s-id98.fasta"
+                index: "/gpfs0/bioinfo/users/obayomi/metatranscriptomics/samsa2/programs/sortmerna-2.1/index/silva-euk-28s-db"
+    swissprot: "/gpfs0/bioinfo/databases/UniProt/UniProt_rel2017_05/BLAST_db/SwissProt/swissprot_db"
+    uniprot: "/gpfs0/bioinfo/databases/UniProt/UniProt_rel2017_05/BLAST_db/UniProt_db"
+    refseq: "/gpfs0/bioinfo/databases/NCBI/RefSeq/Protein/refseq_protein_blastdb_Sep_2019/refseq_protein"                           
+    trinotate:
+        sprot: "/gpfs0/bioinfo/databases/Trinity/Trinotate_v3.1.1/Aug2019/uniprot_sprot.pep"
+        pfam: "/gpfs0/bioinfo/databases/Trinity/Trinotate_v3.1.1/Aug2019/PFAM/Pfam-A.hmm"
+        sqlitedb: "/gpfs0/bioinfo/databases/Trinity/Trinotate_v3.1.1/Aug2019/Trinotate.sqlite"
+
+
+# Set tool specific parameters
+parameters:
+    kaiju: 
+        evalue: 1e-5
+    metaerg:
+        min_contig_len: 200
+    trimmomatic:
+        adaptors: "/fastspace/bioinfo_apps/Trimmomatic-0.32/adapters/TruSeq3-PE.fa"
+        min_len: 70
+    find_protein:
+        percent_identity: 85
+        query_coverage: 60
+        evalue: 1e-5
+        out_format: "6 qseqid sseqid stitle pident length mismatch gapopen qstart qend sstart send evalue bitscore"
+    trinity:
+        cpu: 50
+        max_memory: 500G
+        min_kmer_cov: 2
+
+# full paths to your conda environments 
+conda:
+    base:   
+        env: "source activate /gpfs0/bioinfo/users/obayomi/miniconda3/"
+        perl5lib: "export PERL5LIB=/gpfs0/bioinfo/users/obayomi/miniconda3/lib/5.32.0"
+    metagenomics:
+        env: "source activate /gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/" 
+        perl5lib: "export PERL5LIB=/gpfs0/bioinfo/apps/Miniconda2/Miniconda_v4.3.21/envs/Metagenomics/lib/site_perl/5.26.2/x86_64-linux-thread-multi"
+    metaerg: 
+        env: "source activate /gpfs0/bioinfo/users/obayomi/miniconda3/envs/metaerg/"
+        perl5lib: "export PERL5LIB=/gpfs0/bioinfo/users/obayomi/miniconda3/envs/metaerg/lib/5.26.2"
+    bioinfo: 
+        env: "source activate /gpfs0/bioinfo/users/obayomi/miniconda3/envs/bioinfo/"
+        perl5lib: "export PERL5LIB=/gpfs0/bioinfo/users/obayomi/miniconda3/envs/bioinfo/lib/5.26.2"
+    non_model_RNA_Seq:
+        env: "source activate non_model_RNA_Seq"
+        perl5lib: "export PERL5LIB=/gpfs0/bioinfo/users/obayomi/miniconda3/envs/non_model_RNA_Seq/lib/site_perl/5.26.2/"

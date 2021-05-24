@@ -1,0 +1,36 @@
+name: Metagenomics
+channels:
+    - conda-forge
+    - bioconda
+    - defaults
+dependencies:
+    - snakemake-minimal
+    - aragorn=1.2.38
+    - blast=2.7.1
+    - bowtie2=2.3.4.3
+    - centrifuge=1.0.4_beta
+    - diamond=0.8.36
+    - fastqc=0.11.8
+    - hmmer=3.2.1
+    - humann2=0.11.2
+    - kaiju=1.6.3
+    - kneaddata=0.7.2
+    - kraken-biom=1.0.1
+    - kraken2=2.0.7_beta
+    - krona=2.7
+    - metaphlan2=2.7.7
+    - minced=0.3.2
+    - multiqc=1.7
+    - parallel=20190122
+    - perl=5.26.2
+    - prodigal=2.6.3
+    - prokka=1.13.4
+    - python=2.7.15
+    - quast=5.0.2
+    - r-base>=3.5.1
+    - r-tidyverse=1.2.1
+    - samtools=1.9
+    - spades=3.13.0
+    - trim-galore=0.5.0
+    - trimmomatic=0.38
+    - wget=1.20.1
