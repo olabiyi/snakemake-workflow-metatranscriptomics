@@ -1121,6 +1121,7 @@ rule Assemble_transcriptome:
         PERL5LIB=config['conda']['non_model_RNA_Seq']['perl5lib'],
         program=config['programs_path']['trinity']['trinity'],
         cpu=config['parameters']['trinity']['cpu'],
+        out_dir=lambda w, output: path.dirname(output[0]),
         max_memory=config['parameters']['trinity']['max_memory'],
         min_kmer_cov=config['parameters']['trinity']['min_kmer_cov'],
         o="logs/Assemble_transcriptome/Assemble_transcriptome.log.o",
@@ -1139,7 +1140,7 @@ rule Assemble_transcriptome:
          --seqType fq \
          --min_kmer_cov {params.min_kmer_cov} \
          --full_cleanup \
-         --output {output} \
+         --output {params.out_dir} \
          --single ${{FILES}} 
         """
 
